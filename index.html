@@ -1253,6 +1253,13 @@ html.modal-open{overflow:hidden}
     d.addEventListener('click',e=>{if(e.target===d)d.close();});
     d.addEventListener('close',()=>document.documentElement.classList.remove('modal-open'));
   });
+  /* deep links: /#segway, /#hachi-pot, /#project-330 ... open that case study */
+  const SLUG={'project-330':'p330','chery':'p330','electric-gt':'gt','segway':'seg','hachi-pot':'hachi','stackin-beats':'beats','running-blade':'blade','shell-eco-marathon':'shell'};
+  function openFromHash(){const h=decodeURIComponent(location.hash.slice(1)).toLowerCase();const id=SLUG[h]||h;const d=id&&document.getElementById(id);
+    if(!d||!d.matches('dialog.case'))return;document.querySelectorAll('dialog[open]').forEach(x=>x.close());
+    const c=document.getElementById('open-'+id);if(c)c.scrollIntoView({block:'center'});
+    d.showModal();d.scrollTop=0;document.documentElement.classList.add('modal-open');}
+  openFromHash();addEventListener('hashchange',openFromHash);
   /* copy */
   function wire(btnId,elId){const b=document.getElementById(btnId),el=document.getElementById(elId);b.addEventListener('click',()=>{const t=el.textContent.trim();const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';};
     if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(()=>{const o=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=o,1600)},sel);else sel();});}
