@@ -548,6 +548,7 @@ html.modal-open{overflow:hidden}
       <div class="grp"><b>CAD</b><div class="chips"><span>SolidWorks</span><span>Fusion 360</span></div></div>
       <div class="grp"><b>Simulation</b><div class="chips"><span>Ansys Fluent</span><span>Ansys Workbench</span><span>STAR-CCM+ (with team)</span></div></div>
       <div class="grp"><b>Electronics and code</b><div class="chips"><span>ESP32</span><span>Arduino</span><span>Python</span><span>MATLAB</span><span>C++</span><span>Mathematica</span></div></div>
+      <div class="grp"><b>Robot software</b><div class="chips"><span>ROS 2 Humble (learning)</span><span>Gazebo</span><span>TurtleBot3</span><span>Ubuntu 22.04</span></div></div>
       <div class="grp"><b>Making</b><div class="chips"><span>FDM / SLA printing</span><span>Wind-tunnel testing</span></div></div>
     </div>
 
@@ -565,7 +566,7 @@ html.modal-open{overflow:hidden}
 
   <section id="projects" aria-label="Projects">
     <div class="sec-h">
-      <div><small>Seven case studies</small><h2>Projects</h2></div>
+      <div><small>Eight case studies</small><h2>Projects</h2></div>
       <div class="seg" role="group" aria-label="Filter projects">
         <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
         <button type="button" id="f-veh" data-f="vehicles" aria-pressed="false">Vehicles</button>
@@ -640,6 +641,16 @@ html.modal-open{overflow:hidden}
           <p>Music-making bricks for children with autism. As CTO I owned the circuit, the cam mechanism and the working prototype.</p>
           <div class="ptags"><span>Arduino Mega</span><span>Cams</span><span>1-Wire</span></div>
           <button class="pill-btn" type="button" data-open="beats" id="open-beats">Read the case study</button>
+        </div>
+      </article>
+      <article class="pcard" data-f="vehicles">
+        <div class="pimg cover"><img src="seat_hero.jpg" alt="" loading="lazy" style="object-position:50% 20%"></div>
+        <div class="pbody">
+          <p class="pmeta">Coursework · Individual</p>
+          <h3>Tool-free modular aircraft seat</h3>
+          <p>An economy seat redesigned for repair, not landfill: a tool-free dovetail slide-and-lock, a generative-lattice frame about 40% lighter, and glue-free parts.</p>
+          <div class="ptags"><span>Fusion 360</span><span>DfMA</span><span>Generative design</span></div>
+          <button class="pill-btn" type="button" data-open="seat" id="open-seat">Read the case study</button>
         </div>
       </article>
       <article class="pcard" data-f="vehicles robots">
@@ -1157,6 +1168,69 @@ html.modal-open{overflow:hidden}
     
   </div>
 </dialog>
+<dialog class="case" id="seat" aria-label="Tool-free modular aircraft seat">
+  <div class="case-in">
+    <button class="close" type="button" data-close aria-label="Close case study">Close</button>
+    <!-- Aircraft seat -->
+    <article class="spread" data-f="vehicles">
+      <figure class="media duo">
+        <div class="half"><img src="seat_hero.jpg" alt="Render of the modular economy seat: aluminium base, lattice backrest and brown knit cushions" loading="lazy"><span class="tagline">Assembled seat</span></div>
+        <div class="half"><img src="seat_exploded.jpg" alt="Exploded render: seat cushion layers separated from the lattice frame" loading="lazy"><span class="tagline">Modules apart</span></div>
+      </figure>
+      <div class="story">
+        <p class="meta"><b>Coursework · Individual</b> · Fusion 360 · concept design</p>
+        <h3>An aircraft seat built to be repaired</h3>
+        <dl class="figs">
+          <div><dd class="hi">&lt; 30 s</dd><dt>To release the seat body, no tools</dt></div>
+          <div><dd>~40%</dd><dt>Lighter frame, about 2 kg per seat</dt></div>
+          <div><dd>0.51 → 0.85+</dd><dt>Material circularity (MCI), estimated</dt></div>
+        </dl>
+        <p>Today’s economy seats are glued and bolted into one block. Fixing one worn part takes more than 10 tools and around 5 hours, so whole seats get scrapped. I redesigned the seat as swappable modules that clip on and off at the gate, so airlines replace the worn part, not the seat.</p>
+      </div>
+    </article>
+
+    <div class="deep" data-f="vehicles" aria-label="Aircraft seat in detail">
+      <section class="dcol">
+        <h4>Problem against target</h4>
+        <div class="cmp-wrap"><table class="cmp">
+          <thead><tr><th scope="col">Measure</th><th scope="col">Typical seat</th><th scope="col">Target</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Part swap</th><td>~5 h</td><td class="hi">15 min</td></tr>
+            <tr><th scope="row">Tools needed</th><td>10+</td><td class="hi">None</td></tr>
+            <tr><th scope="row">Adhesives</th><td>Bonded</td><td class="hi">None</td></tr>
+            <tr><th scope="row">Circularity (MCI)</th><td>0.51</td><td class="hi">0.85+</td></tr>
+          </tbody></table></div>
+        <figure class="dimg"><img src="seat_gate.jpg" alt="Cabin render with sketched technicians swapping seat modules at the gate" loading="lazy"></figure>
+        <p class="dnote">Benchmarked against an A321 seat, the RECARO R1 and the Doy Ultra Slim: aim for RECARO’s quick swap and Doy’s long life in one design.</p>
+      </section>
+      <section class="dcol">
+        <h4>Dovetail slide-and-lock</h4>
+        <div class="iters three">
+          <figure><img src="seat_lock1.jpg" alt="Step 1: frame rail lines up with the base rail" loading="lazy"><figcaption><b>1 · Align</b> Rail meets base</figcaption></figure>
+          <figure><img src="seat_lock2.jpg" alt="Step 2: frame slides in and pushes the spring pin down" loading="lazy"><figcaption><b>2 · Insert</b> Pin pressed down</figcaption></figure>
+          <figure><img src="seat_lock3.jpg" alt="Step 3: spring pin snaps up into the detent and locks" loading="lazy"><figcaption class="ok"><b>3 · Lock</b> Pin snaps home</figcaption></figure>
+        </div>
+        <p class="dnote">A trapezoidal dovetail rail carries the load in every direction; a spring-loaded pin snaps into a detent to hold it against vibration. Push the pin to slide the seat body off in under 30 seconds.</p>
+        <ul class="facts">
+          <li><b>Quick-release armrest</b> uses the same dovetail, so it doubles as the connector between base and back.</li>
+          <li><b>Snap-fit tray table</b> and a push-button headrest swap without tools.</li>
+          <li><b>Stacked assembly</b>: base frame stays on the cabin floor; back, cushions and covers build up from it.</li>
+        </ul>
+      </section>
+      <section class="dcol">
+        <h4>Lighter frame, cleaner materials</h4>
+        <figure class="dimg"><img src="seat_frame.jpg" alt="Backrest frame with an organic Voronoi lattice" loading="lazy"></figure>
+        <ul class="facts">
+          <li><b>Voronoi lattice backrest</b>, inspired by giant water-lily veins: material only where loads run, about 40% less frame mass.</li>
+          <li><b>Recycled 7075 aluminium</b>, CNC machined, joined mechanically so it can go straight back to the recycler.</li>
+          <li><b>Glue-free soft parts</b>: 3D-knit rPET cover over a spacer mesh, so fabric and core separate for recycling.</li>
+        </ul>
+        <h5>Limits and next steps</h5>
+        <p class="dnote">This is a concept: CAD, renders and analysis, not a built seat. It would still need to pass the 16G dynamic crash test, and the 15-minute swap is a design target, not a measured time.</p>
+      </section>
+    </div>
+  </div>
+</dialog>
 <dialog class="case" id="shell" aria-label="Shell Eco-marathon engine">
   <div class="case-in">
     <button class="close" type="button" data-close aria-label="Close case study">Close</button>
@@ -1254,7 +1328,7 @@ html.modal-open{overflow:hidden}
     d.addEventListener('close',()=>document.documentElement.classList.remove('modal-open'));
   });
   /* deep links: /#segway, /#hachi-pot, /#project-330 ... open that case study */
-  const SLUG={'project-330':'p330','chery':'p330','electric-gt':'gt','segway':'seg','hachi-pot':'hachi','stackin-beats':'beats','running-blade':'blade','shell-eco-marathon':'shell'};
+  const SLUG={'project-330':'p330','chery':'p330','electric-gt':'gt','segway':'seg','hachi-pot':'hachi','stackin-beats':'beats','running-blade':'blade','shell-eco-marathon':'shell','aircraft-seat':'seat'};
   function openFromHash(){const h=decodeURIComponent(location.hash.slice(1)).toLowerCase();const id=SLUG[h]||h;const d=id&&document.getElementById(id);
     if(!d||!d.matches('dialog.case'))return;document.querySelectorAll('dialog[open]').forEach(x=>x.close());
     const c=document.getElementById('open-'+id);if(c)c.scrollIntoView({block:'center'});
